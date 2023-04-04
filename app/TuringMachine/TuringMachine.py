@@ -4,7 +4,7 @@ class TuringMachine:
     """ Class that represents basic version of Turing Machine """
 
     def __init__(self, input_tape: List[str], instructions_filename_path: str, machine_stop_keys: List[str], left_symbol = 'L', right_symbol = 'R') -> None:
-        self.state = 's'
+        self.state = ''
         self.current_head_position = 0
         self.tape = input_tape
         self.left_symbol = left_symbol
@@ -29,6 +29,8 @@ class TuringMachine:
                     'symbol_to_replace': symbol_to_replace,
                     'move_dir': move_dir
                 }
+
+        self.state = list(self.instructions)[0] # Set first state as default
 
     def run_machine(self) -> str:
         """ Run machine computing process """
